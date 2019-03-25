@@ -69,9 +69,9 @@ public class RSSignatureCaptureView extends View {
 		mPaint.setStrokeCap(Paint.Cap.ROUND);
 		mPaint.setStrokeJoin(Paint.Join.ROUND);
 
-		mMinWidth = convertDpToPx(8);
-		mMaxWidth = convertDpToPx(16);
-		mVelocityFilterWeight = 0.4f;
+		mMinWidth = convertDpToPx(2);
+		mMaxWidth = convertDpToPx(10);
+		mVelocityFilterWeight = 0.7f;
 		mPaint.setColor(Color.BLACK);
 
 		//Dirty rectangle to update only the changed portion of the view
@@ -254,7 +254,7 @@ public class RSSignatureCaptureView extends View {
 				getParent().requestDisallowInterceptTouchEvent(true);
 				mPoints.clear();
 				mPath.moveTo(eventX, eventY);
-				addPoint(new TimedPoint(eventX, eventY));
+				// addPoint(new TimedPoint(eventX, eventY));
 
 			case MotionEvent.ACTION_MOVE:
                 if((Math.abs(mLastTouchX - eventX) < SCROLL_THRESHOLD || Math.abs(mLastTouchY - eventY) < SCROLL_THRESHOLD) && dragged) {
